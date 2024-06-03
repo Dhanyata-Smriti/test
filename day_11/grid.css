@@ -1,0 +1,42 @@
+.purple{
+    color: purple;
+}
+.font{
+    font-size: 2rem;
+}
+.container{
+    
+    display: grid;
+    grid-template-columns: 500px 700px;
+    grid-template-rows: 500px 500px 500px;
+    
+}
+.Header{
+    display: flex;
+    justify-content: f;
+    align-items: center;
+   
+    color: darkgray;
+    background-color: darkblue;
+    font-size: 50px;
+}
+.Item1{
+    
+
+    color:black;
+    background-color: yellow;
+    font-size: 50px;
+}
+.Item2{
+    
+   
+    color: brown;
+    background-color: lightgreen;
+    font-size: 50px;
+}
+.Footer{
+    
+    color:purple;
+    background-color: lightpink;
+    font-size: 50px;
+}

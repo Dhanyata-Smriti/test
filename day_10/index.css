@@ -1,0 +1,32 @@
+section{
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+    border:2px solid lavender;
+}
+.red{
+    height: 70px;
+    color: cornflowerblue;
+    background-color: red;
+    
+}
+.green{
+    height: 175px;
+    outline: solid purple 2px;
+    color: black;
+    background-color: green;
+    
+}
+.blue{
+    height: 100px;
+    color: black;
+    background-color: blue;
+    
+}
+div{
+     padding: 0.5rem;
+     color: bisque;
+     height: 50px;
+     border: solid 2px cadetblue;
+     background-color: darkblue;
+}

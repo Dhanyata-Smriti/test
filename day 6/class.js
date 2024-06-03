@@ -50,8 +50,6 @@ city:"Madurai",
 return details;
   
 }
-
-
 const per_other= new person_other(skills(),education(),detail());
 
 
