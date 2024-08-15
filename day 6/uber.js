@@ -67,7 +67,7 @@ function Str(employee)
     console.log(arr);
     }
     
-Str(employee);*/
+Str(employee);
 class animal
 {
   constructor(name)
@@ -96,4 +96,4 @@ class rabbit extends animal
 }
 const a= new rabbit("Dhiya","E01");
 console.log("Name",a.getname());
-console.log("ID",a.getId());
+console.log("ID",a.getId());*/

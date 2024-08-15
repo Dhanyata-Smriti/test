@@ -1,32 +1,27 @@
-section{
-    display: flex;
-    flex-direction: row;
-    height: 90vh;
-    border:2px solid lavender;
+
+/* section{
+    position: sticky;
+} */
+#box
+{
+    position: sticky;
+    top: 20px;
+    width: 15rem;
+    height: 10rem;
+    background-color: lightsalmon;
+    border: 10px solid black;
 }
-.red{
-    height: 70px;
-    color: cornflowerblue;
-    background-color: red;
-    
+p{
+    font-size: 1.75rem;
+    margin: 1.5rem;
+    padding: 1rem;
+    border: 2px solid black;
+
 }
-.green{
-    height: 175px;
-    outline: solid purple 2px;
-    color: black;
-    background-color: green;
-    
-}
-.blue{
-    height: 100px;
-    color: black;
-    background-color: blue;
-    
-}
-div{
-     padding: 0.5rem;
-     color: bisque;
-     height: 50px;
-     border: solid 2px cadetblue;
-     background-color: darkblue;
+#long
+{
+    padding: 10px;
+    background-color: lightpink;
+    border: 10px;
+
 }
