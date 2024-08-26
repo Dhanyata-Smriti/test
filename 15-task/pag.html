@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGINATION</title>
+    <style>
+            #content {
+            margin-bottom: 20px;
+            }
+
+            .page {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            }
+
+            .page.active {
+            display: block;
+            }
+
+            #pagination {
+            text-align: center;
+            margin-top: 20px;
+            }
+
+            #pagination button {
+            padding: 10px 15px;
+            margin: 0 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            }
+
+            #pagination button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            }
+
+            #pageNumbers {
+            margin: 0 10px;
+            }
+
+            #pageNumbers button {
+            padding: 5px 10px;
+            margin: 0 3px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            }
+
+            #pageNumbers button.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+            }
+
+            #jumpToPage {
+            display: inline-block;
+            margin-left: 20px;
+            }
+
+            #jumpToPage input {
+            width: 50px;
+            padding: 5px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            }
+
+            #jumpToPage button {
+            padding: 5px 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="page" id="page1">Page 1 Content</div>
+        <div class="page" id="page2">Page 2 Content</div>
+        <div class="page" id="page3">Page 3 Content</div>
+        <div class="page" id="page4">Page 4 Content</div>
+        <div class="page" id="page5">Page 5 Content</div>
+      </div>
+      
+      <div id="pagination">
+        <button id="prevBtn" onclick="prevPage()" disabled>Previous</button>
+        <span id="pageNumbers"></span>
+        <button id="nextBtn" onclick="nextPage()">Next</button>
+        <div id="jumpToPage">
+          <input type="number" id="pageInput" placeholder="Page #" min="1" max="5">
+          <button onclick="jumpToPage()">Go</button>
+        </div>
+      </div>
+      <script>
+        let currentPage = 1;
+        const totalPages = document.querySelectorAll('.page').length;
+
+        function showPage(page) {
+        
+        document.querySelectorAll('.page').forEach((div, index) => {
+            div.classList.remove('active');
+            if (index === page - 1) {
+            div.classList.add('active');
+            }
+        });
+
+
+        document.getElementById('prevBtn').disabled = page === 1;
+        document.getElementById('nextBtn').disabled = page === totalPages;
+
+       
+        document.querySelectorAll('#pageNumbers button').forEach((btn, index) => {
+            btn.classList.toggle('active', index === page - 1);
+        });
+        }
+
+        function nextPage() {
+        if (currentPage < totalPages) {
+            currentPage++;
+            showPage(currentPage);
+        }
+        }
+
+        function prevPage() {
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
+        }
+
+        function goToPage(page) {
+        if (page >= 1 && page <= totalPages) {
+            currentPage = page;
+            showPage(currentPage);
+        }
+        }
+
+        function createPageNumbers() {
+        const pageNumbers = document.getElementById('pageNumbers');
+        for (let i = 1; i <= totalPages; i++) {
+            const button = document.createElement('button');
+            button.textContent = i;
+            button.onclick = () => goToPage(i);
+            pageNumbers.appendChild(button);
+        }
+        }
+
+        function jumpToPage() {
+        const pageInput = document.getElementById('pageInput').value;
+        const pageNumber = parseInt(pageInput, 10);
+        if (!isNaN(pageNumber)) {
+            goToPage(pageNumber);
+        } else {
+            alert("Please enter a valid page number.");
+        }
+        }
+
+
+        createPageNumbers();
+        showPage(currentPage);
+
+      </script>
+</body>
+</html>

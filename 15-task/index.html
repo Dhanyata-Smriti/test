@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM SUBMISSION</title>
+    <style>
+        table {
+    width: 100%;
+    border-collapse: collapse;
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+    label
+    {
+        font-size: large; 
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: large; font-family: Arial, Helvetica, sans-serif; display: flex; justify-content: center;">FORM SUBMISSION</h1>
+        <form id="form">
+    
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" placeholder=" Enter First name">
+            </br></br>
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" placeholder="Enter Last name">
+            </br></br>
+            <label for="mail">Mail id:</label>
+            <input type="email" id="mail" placeholder="Enter mail">
+            </br></br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" placeholder="Enter Address">
+            </br></br>
+            <label for="pincode">Pincode:</label>
+            <input type="number" id="pincode" placeholder="Enter pin">
+            </br></br>
+           
+            <label>Gender:</label>
+            <label><input type="radio" name="gender" value="Male" required> Male</label>
+            <label><input type="radio" name="gender" value="Female" required> Female</label>
+    
+            </br></br>
+            <label>Food:</label>
+            <label><input type="checkbox" name="food" value="Idly/dosa"> Idly/dosa</label>
+            <label><input type="checkbox" name="food" value="Chapathi/parotta"> Chapathi/parotta</label>
+            <label><input type="checkbox" name="food" value="Friedrice/Noodle"> Friedrice/Noodle</label>
+            <label><input type="checkbox" name="food" value="pizza/Burger"> pizza/Burger</label>
+            <label><input type="checkbox" name="food" value="Veg meals"> Veg meals</label>
+            </br></br>
+            <label for="state">State:</label>
+            <input type="text" id="state" placeholder="Enter your State">
+            </br></br>
+            <label for="Country">Country:</label>
+            <input type="text" id="Country" placeholder="Enter your Country">
+            </br></br>
+            <button type="submit">SUBMIT</button>
+            </br></br>
+        </form>
+
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
+                    <th>EMAIL</th>
+                    <th>ADDRESS</th>
+                    <th>PINCODE</th>
+                    <th>GENDER</th>
+                    <th>FOOD</th>
+                    <th>STATE</th>
+                    <th>COUNTRY</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+            
+        </table>
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const fname=document.getElementById('fname').value;
+        const lname=document.getElementById('lname').value;
+        const mail=document.getElementById('mail').value;
+        const address=document.getElementById('address').value;
+        const pin=document.getElementById('pincode').value;
+
+
+        const gender = document.querySelector('input[name="gender"]:checked').value;
+        const food = [];
+                document.querySelectorAll('input[name="food"]:checked').forEach(function(checkbox) {
+                    food.push(checkbox.value);
+                });
+        const state=document.getElementById('state').value;
+        const country=document.getElementById('Country').value;
+
+        const Table = document.getElementById('table').getElementsByTagName('tbody')[0];
+        const newRow = Table.insertRow();
+
+        const fnameCell = newRow.insertCell(0);
+        const lnameCell = newRow.insertCell(1);
+        const mailCell = newRow.insertCell(2);
+        const addressCell = newRow.insertCell(3);
+        const pinCell = newRow.insertCell(4);
+        const genderCell = newRow.insertCell(5);
+        const foodCell = newRow.insertCell(6);
+        const stateCell = newRow.insertCell(7);
+        const countryCell = newRow.insertCell(8);
+
+        fnameCell.textContent=fname;
+        lnameCell.textContent=lname;
+        mailCell.textContent=mail;
+        addressCell.textContent=address;
+        pinCell.textContent=pin;
+        genderCell.textContent=gender;
+        foodCell.textContent=food;
+        stateCell.textContent=state;
+        countryCell.textContent=country;
+        
+
+        document.getElementById('form').reset();
+
+  });
+  
+ 
+    </script>
+    
+    
+</body>
+</html>
